@@ -1,0 +1,6 @@
+# Accesos directos de Windows (no sirven en la web ni en GitHub)
+*.lnk
+
+# Archivos basura de Windows
+Thumbs.db
+desktop.ini

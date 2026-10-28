@@ -1,0 +1,1809 @@
+<!DOCTYPE html>
+<html lang="es-AR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>San Roque Soporte &amp; Web | Arreglo de PC y páginas web en San Roque, Corrientes</title>
+  <meta name="description" content="¿La PC anda lenta, se tilda o no prende? Arreglo PCs y notebooks en San Roque, Corrientes: limpieza y pasta térmica, Windows, Office, SSD y RAM. También hago páginas web para emprendimientos. Presupuesto sin cargo por WhatsApp." />
+  <meta name="theme-color" content="#0E0E0E" />
+
+  <!-- Tipografía clásica: Montserrat (títulos) + Open Sans (texto) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome (iconos vectoriales, sin emojis) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <!-- Tailwind CSS (CDN) + paleta Rojo y Negro -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base:   { DEFAULT: '#0E0E0E', 2: '#161616', deep: '#080808' },   // negros
+            accent: { DEFAULT: '#2A2A2A', dark: '#1C1C1C', light: '#3A3A3A' }, // grises carbón
+            brand:  { DEFAULT: '#E11D2E', light: '#F04452', dark: '#B3121F' }, // rojo
+            ink:    { DEFAULT: '#FFFFFF', muted: '#C9C9C9' }
+          },
+          fontFamily: {
+            sans: ['"Open Sans"', 'system-ui', 'sans-serif'],
+            display: ['Montserrat', '"Open Sans"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* =====================================================================
+       VARIABLES GLOBALES — Paleta clásica Rojo y Negro
+       ===================================================================== */
+    :root {
+      --base:        #0E0E0E;   /* negro principal (fondo) */
+      --base-2:      #161616;   /* negro de tarjetas */
+      --base-deep:   #080808;   /* negro profundo (footer) */
+      --line:        #2A2A2A;   /* bordes grises */
+      --brand:       #E11D2E;   /* rojo principal */
+      --brand-light: #F04452;   /* rojo hover */
+      --brand-dark:  #B3121F;   /* rojo oscuro */
+      --text:        #FFFFFF;
+      --text-muted:  #C9C9C9;
+    }
+
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      background: var(--base);
+      color: var(--text);
+      overflow-x: clip;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* =====================================================================
+       LETRAS NÍTIDAS
+       Todos los títulos en blanco puro (antes algunos heredaban un color
+       apagado y se veían borrosos/sin contorno) + sombra mínima que les da
+       borde contra el fondo.
+       ===================================================================== */
+    h1, h2, h3, h4 {
+      color: #FFFFFF;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .65);
+    }
+    .text-gradient { text-shadow: none; }
+    p, li, label { text-shadow: 0 1px 1px rgba(0, 0, 0, .35); }
+    ::selection { background: var(--brand); color: #fff; text-shadow: none; }
+    h1, h2, h3 { letter-spacing: -.01em; text-wrap: balance; overflow-wrap: break-word; }
+    p { overflow-wrap: break-word; }
+
+    /* Al tocar un link del menú, el título no queda tapado por la barra fija */
+    section[id] { scroll-margin-top: 72px; }
+
+    /* Sin demora de 300 ms al tocar en celulares */
+    a, button, label, input, select, textarea { touch-action: manipulation; }
+
+    /* Portada a pantalla completa (con respaldo para iPhone viejos) */
+    .hero-full { min-height: 100vh; min-height: 100svh; }
+
+    /* ---------- Paneles (sólidos, estilo clásico) ---------- */
+    .glass {
+      background: rgba(22, 22, 22, .94);           /* casi sólido: deja ver apenas el fondo */
+      border: 1px solid var(--line);
+    }
+    .glass-strong {
+      background: #121212;
+      border: 1px solid var(--line);
+      border-top: 3px solid var(--brand);      /* franja roja arriba */
+    }
+    .text-gradient { color: var(--brand); }      /* resaltado en rojo liso */
+
+    /* Línea roja corta debajo de los títulos de sección */
+    .section-title::after {
+      content: ''; display: block; width: 64px; height: 3px; background: var(--brand);
+      margin: 1rem auto 0;
+    }
+    .section-title.text-left::after { margin-left: 0; }
+
+    /* =====================================================================
+       BOTONES
+       ===================================================================== */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: .6rem;
+      min-height: 52px;                     /* área cómoda para el dedo */
+      padding: .9rem 1.75rem;
+      border-radius: 6px;                   /* esquinas clásicas */
+      border: 2px solid transparent;
+      font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: .95rem; line-height: 1.2;
+      text-transform: uppercase; letter-spacing: .04em;
+      text-align: center; text-decoration: none; cursor: pointer;
+      transition: all .3s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn:focus-visible { outline: 3px solid var(--brand-light); outline-offset: 3px; }
+    .btn:active { transform: translateY(0) scale(.98); }
+
+    /* Principal: rojo con texto blanco */
+    .btn-primary {
+      background: var(--brand);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(225, 29, 46, .25);
+    }
+    .btn-primary:active { background: var(--brand-dark); }
+
+    /* Secundario: transparente con borde blanco, se rellena al hover */
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255, 255, 255, .7);
+    }
+    .btn-secondary:active { background: rgba(255,255,255,.12); }
+
+    /* Efectos hover SOLO en compu (en celular quedaban "pegados" al tocar) */
+    @media (hover: hover) and (pointer: fine) {
+      .btn-primary:hover {
+        background: var(--brand-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 26px rgba(225, 29, 46, .4);
+      }
+      .btn-secondary:hover {
+        background: #fff;
+        color: var(--base);
+        border-color: #fff;
+        transform: translateY(-2px);
+      }
+    }
+
+    .btn-sm { min-height: 42px; padding: .55rem 1.2rem; font-size: .8rem; }
+    .btn:disabled, .btn[disabled] { opacity: .4; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    /* ---------- Navbar ---------- */
+    #navbar {
+      transition: background .3s ease, box-shadow .3s ease;
+      padding-top: env(safe-area-inset-top);          /* respeta el "notch" del iPhone */
+    }
+    #navbar.scrolled {
+      background: rgba(8, 8, 8, .96);
+      box-shadow: 0 2px 0 var(--brand);
+    }
+    .nav-link { position: relative; color: #D4D4D4; font-weight: 600; transition: color .2s; }
+    .nav-link::after { content:''; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:var(--brand); transition: width .25s ease; }
+    .nav-link:hover, .nav-link.active { color: #fff; }
+    .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+    #mobileMenu { transition: opacity .25s ease, transform .25s ease; }
+    #mobileMenu.closed { opacity: 0; transform: translateY(-10px); pointer-events: none; }
+
+    /* ---------- Tarjetas de servicio (hover clásico) ---------- */
+    .tilt-card {
+      position: relative; overflow: hidden;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .tilt-card::before {               /* franja roja que aparece arriba */
+      content:''; position:absolute; left:0; top:0; height:3px; width:0; background: var(--brand);
+      transition: width .35s ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .tilt-card:hover { transform: translateY(-6px); border-color: #3A3A3A; box-shadow: 0 18px 40px rgba(0,0,0,.55); }
+      .tilt-card:hover::before { width: 100%; }
+    }
+    /* En celular la franja roja queda siempre visible */
+    @media (hover: none) { .tilt-card::before { width: 100%; } }
+
+    .icon-box {
+      background: var(--brand);
+      color: #fff !important;
+      border: none;
+    }
+
+    /* ---------- Cotizador ---------- */
+    .opt { cursor: pointer; min-height: 64px; transition: border-color .2s, background .2s; -webkit-tap-highlight-color: transparent; }
+    .opt:hover { border-color: #4A4A4A; }
+    .opt input { position: absolute; opacity: 0; pointer-events: none; }
+    .opt .check { transition: all .2s; }
+    .opt:has(input:checked) { border-color: var(--brand); background: rgba(225,29,46,.08); }
+    .opt:has(input:checked) .check { background: var(--brand); color: #fff; border-color: var(--brand); }
+    .opt:has(input:focus-visible) { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+    /* ---------- Formularios ---------- */
+    .field {
+      width: 100%; background: #0B0B0B; border: 1px solid #333;
+      border-radius: 6px; padding: .85rem 1rem; color: var(--text);
+      font-size: 16px;                       /* evita el zoom automático en iPhone */
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .field::placeholder { color: #777; }
+    .field:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px rgba(225,29,46,.2); }
+    .field.invalid { border-color: #F87171; }
+    select.field option { background: var(--base-2); }
+
+    /* ---------- Botón flotante de WhatsApp ---------- */
+    .wa-float::before, .wa-float::after {
+      content:''; position:absolute; inset:0; border-radius:9999px; border:2px solid #25D366;
+      animation: pulse 2.4s ease-out infinite; z-index:-1;
+    }
+    .wa-float::after { animation-delay: 1.2s; }
+    @keyframes pulse { 0% { transform: scale(1); opacity: .85; } 100% { transform: scale(1.8); opacity: 0; } }
+    .wa-float:hover .wa-tip { opacity: 1; transform: translateX(0); }
+
+    /* ---------- Reveal on scroll ---------- */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+    .d1 { transition-delay: .08s; } .d2 { transition-delay: .16s; } .d3 { transition-delay: .24s; } .d4 { transition-delay: .32s; }
+
+    .dot-live { animation: blink 1.6s infinite; }
+    @keyframes blink { 50% { opacity: .3; } }
+
+    /* ---------- Fondo oscuro detrás del menú móvil ---------- */
+    #menuBackdrop {
+      position: fixed; inset: 0; z-index: 40; background: rgba(0,0,0,.6);
+      opacity: 0; pointer-events: none; transition: opacity .25s ease;
+    }
+    body.menu-open #menuBackdrop { opacity: 1; pointer-events: auto; }
+    body.menu-open { overflow: hidden; }               /* no se mueve la página detrás */
+    .m-link.active { color: #fff; background: rgba(225,29,46,.12); border-left: 3px solid var(--brand); }
+
+    /* ---------- Barra inferior del pedido (solo celular/tablet) ---------- */
+    .quote-bar {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 45;
+      display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+      padding: .7rem 1rem calc(.7rem + env(safe-area-inset-bottom));
+      background: #0A0A0A; border-top: 2px solid var(--brand);
+      box-shadow: 0 -10px 30px rgba(0,0,0,.6);
+      transform: translateY(110%); transition: transform .3s ease;
+    }
+    .quote-bar.show { transform: translateY(0); }
+    @media (min-width: 1024px) { .quote-bar { display: none; } }
+
+    /* El botón de WhatsApp se esconde cuando molesta (menú, barra o teclado abiertos) */
+    .wa-float { transition: transform .3s ease, opacity .3s ease; }
+    body.menu-open .wa-float,
+    body.bar-open .wa-float,
+    body.typing .wa-float { opacity: 0; transform: scale(.6); pointer-events: none; }
+
+    /* =====================================================================
+       CINTA DE TEXTO EN MOVIMIENTO (marquee)
+       Dos filas en sentidos opuestos, bordes que se desvanecen,
+       se frena al pasar el mouse o al apoyar el dedo.
+       ===================================================================== */
+    .marquee-band {
+      padding: 2.75rem 0;
+      background: #0A0A0A;
+      border-block: 1px solid #1F1F1F;
+      overflow: hidden;
+    }
+    .marquee {
+      --size: clamp(1.7rem, 5.2vw, 3.8rem);
+      overflow: hidden;
+      /* desvanecido suave en los costados */
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+    }
+    .marquee + .marquee { margin-top: .5rem; }
+    .marquee-track {
+      display: flex; align-items: center; width: max-content;
+      animation: marquee var(--dur, 45s) linear infinite;
+      will-change: transform;
+    }
+    .marquee[data-dir="right"] .marquee-track { animation-direction: reverse; }
+    .marquee.paused .marquee-track { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translate3d(0, 0, 0); }
+      to   { transform: translate3d(-50%, 0, 0); }
+    }
+    .marquee-item {
+      font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: var(--size);
+      text-transform: uppercase; letter-spacing: .015em; line-height: 1.2;
+      white-space: nowrap; color: #F2F2F2;
+      transition: color .35s ease, -webkit-text-stroke-color .35s ease;
+    }
+    /* Segunda fila: letras caladas (solo contorno) */
+    .marquee-outline .marquee-item {
+      color: transparent;
+      -webkit-text-stroke: 1.5px #9A9A9A;            /* contorno más claro: se lee bien */
+      paint-order: stroke fill;
+      text-shadow: none;
+    }
+    /* Separador: punto rojo */
+    .marquee-sep {
+      flex: none; width: calc(var(--size) * .26); height: calc(var(--size) * .26);
+      margin: 0 calc(var(--size) * .45);
+      border-radius: 9999px; background: var(--brand);
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .marquee-item:hover { color: var(--brand); }
+      .marquee-outline .marquee-item:hover { -webkit-text-stroke-color: var(--brand); }
+    }
+    @media (max-width: 639px) {
+      .marquee-band { padding: 1.9rem 0; }
+      .marquee-outline .marquee-item { -webkit-text-stroke-width: 1.2px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-track { animation: none; }
+    }
+
+    /* =====================================================================
+       GALERÍA DE TRABAJOS (fotos y videos reales)
+       ===================================================================== */
+    /* Filtros por tipo de trabajo */
+    .work-filters {
+      display: flex; gap: .5rem; justify-content: center; flex-wrap: wrap;
+      margin: 0 auto 2rem;
+    }
+    @media (max-width: 639px) {
+      /* En celular: una fila que se desliza con el dedo */
+      .work-filters {
+        flex-wrap: nowrap; justify-content: flex-start; overflow-x: auto;
+        margin: 0 -1rem 1.5rem; padding: 0 1rem .25rem; scrollbar-width: none;
+      }
+      .work-filters::-webkit-scrollbar { display: none; }
+    }
+    .work-filters button {
+      flex: none; min-height: 42px; padding: .5rem 1rem; border-radius: 9999px;
+      background: #151515; border: 1px solid #333; color: #DDD;
+      font-size: .88rem; font-weight: 600; white-space: nowrap;
+      transition: background .2s, border-color .2s, color .2s;
+    }
+    .work-filters button span { color: #888; font-weight: 500; margin-left: .25rem; }
+    .work-filters button.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .work-filters button.on span { color: rgba(255,255,255,.8); }
+    @media (hover: hover) and (pointer: fine) { .work-filters button:not(.on):hover { border-color: #666; color: #fff; } }
+
+    /* Grilla de tarjetas: foto arriba + qué trabajo se hizo abajo */
+    .works { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+    @media (min-width: 640px)  { .works { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .works { grid-template-columns: repeat(3, 1fr); gap: 1.5rem; } }
+
+    .work {
+      display: flex; flex-direction: column; overflow: hidden;
+      background: #151515; border: 1px solid var(--line); border-radius: 8px;
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+    .work.is-hidden, .work.is-broken { display: none !important; }
+    .work.pop { animation: workIn .45s ease both; }
+    @keyframes workIn { from { opacity: 0; transform: translateY(14px) scale(.98); } to { opacity: 1; transform: none; } }
+    @media (hover: hover) and (pointer: fine) {
+      .work:hover { transform: translateY(-4px); border-color: #3A3A3A; box-shadow: 0 18px 40px rgba(0,0,0,.5); }
+      .work:hover .work-media img, .work:hover .work-media video { transform: scale(1.05); }
+    }
+
+    .work-media {
+      position: relative; display: block; width: 100%; aspect-ratio: 4 / 3;
+      padding: 0; border: 0; overflow: hidden; background: #0B0B0B; cursor: zoom-in;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .work-media:focus-visible { outline: 3px solid var(--brand); outline-offset: -3px; }
+    .work-media img, .work-media video {
+      display: block; width: 100%; height: 100%; object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .work-zoom {
+      position: absolute; right: .65rem; bottom: .65rem; width: 40px; height: 40px; border-radius: 9999px;
+      display: grid; place-items: center; background: rgba(0,0,0,.7); color: #fff; font-size: .9rem;
+      pointer-events: none;
+    }
+    .work-live {
+      position: absolute; top: .65rem; left: .65rem; display: flex; align-items: center; gap: .4rem;
+      padding: .3rem .6rem; border-radius: 4px; background: rgba(0,0,0,.72);
+      color: #fff; font-size: .72rem; font-weight: 700; pointer-events: none;
+    }
+    .work-live::before { content: ''; width: 8px; height: 8px; border-radius: 9999px; background: #777; }
+    .work-media.playing .work-live::before { background: var(--brand); animation: blink 1.2s infinite; }
+    .work-media .video-error {
+      position: absolute; inset: 0; display: none; place-items: center; text-align: center; padding: 1rem;
+      background: #0B0B0B; color: #ccc; font-size: .9rem;
+    }
+    .work-media.failed .video-error { display: grid; }
+
+    .work-body { display: flex; flex-direction: column; gap: .5rem; flex: 1; padding: 1.1rem 1.2rem 1.25rem; }
+    .work-tag {
+      align-self: flex-start; padding: .2rem .55rem; border-radius: 4px;
+      background: rgba(225,29,46,.12); border: 1px solid rgba(225,29,46,.45); color: #FF6B76;
+      font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+    }
+    .work h3 { font-family: 'Montserrat', sans-serif; font-size: 1.08rem; line-height: 1.3; }
+    .work-label { margin-top: .15rem; font-size: .72rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #9A9A9A; }
+    .work ul { list-style: none; display: grid; gap: .4rem; font-size: .9rem; color: #D8D8D8; }
+    .work li { display: flex; gap: .55rem; line-height: 1.45; }
+    .work li::before { content: ''; flex: none; width: 6px; height: 6px; margin-top: .55em; border-radius: 9999px; background: var(--brand); }
+    .work-result {
+      display: flex; gap: .5rem; align-items: flex-start; margin-top: auto; padding-top: .8rem;
+      border-top: 1px solid #262626; font-size: .88rem; font-weight: 600; color: #fff;
+    }
+    .work-result i { color: #22C55E; margin-top: .2rem; }
+
+    /* =====================================================================
+       PÁGINAS QUE HICE (referencias)
+       ===================================================================== */
+    .refs { display: grid; gap: 1.25rem; grid-template-columns: 1fr; max-width: 1040px; margin: 0 auto; }
+    @media (min-width: 768px) { .refs { grid-template-columns: repeat(2, 1fr); gap: 1.75rem; } }
+
+    .ref {
+      display: flex; flex-direction: column; overflow: hidden;
+      background: #151515; border: 1px solid var(--line); border-radius: 10px;
+      transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .ref:hover { transform: translateY(-5px); border-color: #3A3A3A; box-shadow: 0 20px 44px rgba(0,0,0,.55); }
+      .ref:hover .ref-shot img { transform: scale(1.04); }         /* leve acercamiento de la vista previa */
+      .ref:hover .ref-open { opacity: 1; transform: none; }
+    }
+
+    .ref-preview { position: relative; display: block; background: #0B0B0B; }
+    .ref-preview:focus-visible { outline: 3px solid var(--brand); outline-offset: -3px; }
+    .ref-bar {
+      display: flex; align-items: center; gap: .6rem; padding: .55rem .75rem;
+      background: #1C1C1C; border-bottom: 1px solid #262626;
+    }
+    .ref-dots { display: flex; gap: 5px; flex: none; }
+    .ref-dots i { width: 9px; height: 9px; border-radius: 9999px; background: #3A3A3A; }
+    .ref-dots i:first-child { background: var(--brand); }
+    .ref-url {
+      flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      padding: .25rem .6rem; border-radius: 5px; background: #111; color: #AFAFAF; font-size: .75rem;
+    }
+    .ref-url i { color: #22C55E; margin-right: .25rem; font-size: .65rem; }
+
+    .ref-shot { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; }
+    .ref-shot img {
+      position: relative; z-index: 1; display: block; width: 100%; height: 100%;
+      object-fit: cover; object-position: top; transition: transform 1.2s ease, opacity .4s ease;
+    }
+    .ref-shot img:not([src]) { display: none; }
+    .ref-shot.no-img img { opacity: 0; }        /* sigue cargando por detrás; se muestra cuando llega */
+    .ref-fallback {
+      position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: .4rem;
+      text-align: center; color: #ddd;
+      background: radial-gradient(circle at 50% 35%, rgba(225,29,46,.18), transparent 60%), #101010;
+    }
+    .ref-fallback i { font-size: 2rem; color: var(--brand); }
+    .ref-fallback strong { font-family: 'Montserrat', sans-serif; font-size: 1.15rem; }
+    .ref-fallback small { color: #999; }
+    .ref-open {
+      position: absolute; z-index: 2; right: .75rem; bottom: .75rem;
+      display: inline-flex; align-items: center; gap: .45rem; padding: .5rem .8rem; border-radius: 6px;
+      background: var(--brand); color: #fff; font-size: .8rem; font-weight: 700;
+      opacity: 0; transform: translateY(6px); transition: all .3s ease;
+    }
+    @media (hover: none) { .ref-open { opacity: 1; transform: none; } }   /* en celular siempre visible */
+
+    .ref-body { display: flex; flex-direction: column; gap: .8rem; flex: 1; padding: 1.15rem 1.25rem 1.3rem; }
+    .ref-icon { width: 32px; height: 32px; border-radius: 6px; background: #222; flex: none; }
+    .ref h4 { font-family: 'Montserrat', sans-serif; font-size: 1.12rem; line-height: 1.25; color: #fff; }
+    .ref-domain { font-size: .8rem; color: #9A9A9A; overflow-wrap: anywhere; }
+    .ref ul { list-style: none; display: grid; gap: .4rem; font-size: .9rem; color: #D8D8D8; }
+    .ref li { display: flex; gap: .55rem; line-height: 1.45; }
+    .ref li::before { content: ''; flex: none; width: 6px; height: 6px; margin-top: .55em; border-radius: 9999px; background: var(--brand); }
+    .ref-btn { margin-top: auto; align-self: flex-start; }
+    @media (max-width: 639px) { .ref-btn { width: 100%; align-self: stretch; } }
+
+    /* Mensaje si el video no se puede reproducir en el visor */
+    .lb-error { color: #ddd; text-align: center; padding: 2rem 1rem; }
+    .lb-error a { color: #fff; text-decoration: underline; }
+
+    /* ---------- Visor a pantalla completa (lightbox) ---------- */
+    #lightbox {
+      position: fixed; inset: 0; z-index: 100;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem;
+      padding: calc(4rem + env(safe-area-inset-top)) 1rem calc(1.5rem + env(safe-area-inset-bottom));
+      background: rgba(0,0,0,.95);
+      opacity: 0; pointer-events: none; transition: opacity .25s ease;
+    }
+    #lightbox.open { opacity: 1; pointer-events: auto; }
+    .lb-stage { display: flex; align-items: center; justify-content: center; max-width: min(100%, 1100px); }
+    .lb-stage img, .lb-stage video {
+      max-width: 100%; max-height: calc(100svh - 11rem); object-fit: contain;
+      border-radius: 6px; box-shadow: 0 20px 60px rgba(0,0,0,.6);
+      animation: lbIn .3s ease;
+    }
+    @keyframes lbIn { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+    .lb-cap { text-align: center; max-width: 640px; }
+    .lb-cap strong { display: block; font-family: 'Montserrat', sans-serif; font-size: 1.05rem; }
+    .lb-cap span { color: #C9C9C9; font-size: .9rem; }
+    .lb-btn {
+      position: absolute; width: 48px; height: 48px; border-radius: 9999px; border: 1px solid #333;
+      background: rgba(20,20,20,.85); color: #fff; font-size: 1.15rem; display: grid; place-items: center;
+      transition: background .2s, border-color .2s;
+    }
+    .lb-btn:hover, .lb-btn:active { background: var(--brand); border-color: var(--brand); }
+    .lb-close { top: calc(1rem + env(safe-area-inset-top)); right: 1rem; }
+    .lb-prev  { left: 1rem;  top: 50%; transform: translateY(-50%); }
+    .lb-next  { right: 1rem; top: 50%; transform: translateY(-50%); }
+    .lb-count { position: absolute; top: calc(1.6rem + env(safe-area-inset-top)); left: 1.2rem; font-size: .85rem; color: #aaa; }
+    @media (max-width: 639px) {
+      /* En celular las flechas van abajo para no tapar la foto; también se puede deslizar */
+      .lb-prev, .lb-next { top: auto; bottom: calc(1rem + env(safe-area-inset-bottom)); transform: none; }
+      #lightbox { padding-bottom: calc(5rem + env(safe-area-inset-bottom)); }
+    }
+    body.lb-open { overflow: hidden; }
+    body.lb-open .wa-float { opacity: 0; pointer-events: none; }
+
+    /* ---------- Carrusel deslizable de servicios (celular) ---------- */
+    .carousel-dots { display: none; }
+
+    /* ---------- Ajustes finos para celulares ---------- */
+    @media (max-width: 639px) {
+      .btn { width: 100%; padding: .9rem 1.25rem; font-size: .9rem; }
+      .btn-sm { width: auto; }
+
+      /* Barra superior siempre sólida para que se lea el logo */
+      #navbar { background: rgba(8, 8, 8, .96); box-shadow: 0 1px 0 #222; }
+
+      /* Animaciones más cortas y suaves */
+      .reveal { transform: translateY(16px); transition-duration: .5s; }
+
+      /* Servicios: tarjetas que se deslizan con el dedo */
+      #servicios .m-carousel {
+        display: flex !important; gap: .9rem;
+        overflow-x: auto; scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain;
+        margin: 0 -1rem; padding: .25rem 1rem 1rem;
+        scrollbar-width: none;
+      }
+      #servicios .m-carousel::-webkit-scrollbar { display: none; }
+      #servicios .m-carousel > * { flex: 0 0 86%; scroll-snap-align: center; }
+      #servicios .m-carousel > .reveal { opacity: 1; transform: none; }
+      .carousel-dots { display: flex; justify-content: center; gap: .5rem; margin-top: .25rem; }
+      .carousel-dots button {
+        width: 9px; height: 9px; border-radius: 9999px; background: #444; border: 0; padding: 0;
+        transition: width .25s ease, background .25s ease;
+      }
+      .carousel-dots button.on { width: 26px; background: var(--brand); }
+
+      /* Opciones del pedido un poco más compactas */
+      .opt { min-height: 58px; }
+    }
+
+    /* Pantallas muy chicas (iPhone SE, Android chicos) */
+    @media (max-width: 360px) {
+      .btn { font-size: .82rem; letter-spacing: .02em; }
+      #navbar .font-display { font-size: 14px; }
+    }
+
+    /* Celular acostado: la portada no necesita ocupar toda la altura */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .hero-full { min-height: auto; padding-top: 6rem; padding-bottom: 3rem; }
+    }
+
+    /* Accesibilidad: menos movimiento */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .wa-float::before, .wa-float::after, .dot-live, .animate-bounce { animation: none; }
+      .btn:hover { transform: none; }
+    }
+  </style>
+</head>
+
+<body class="font-sans text-ink antialiased overflow-x-hidden">
+
+
+  <!-- =====================================================================
+       NAVBAR
+       ===================================================================== -->
+  <header id="navbar" class="fixed inset-x-0 top-0 z-50">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between gap-3" aria-label="Principal">
+      <a href="#inicio" class="flex items-center gap-2.5 min-w-0">
+        <span class="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-md grid place-items-center text-white bg-brand"><i class="fa-solid fa-microchip text-lg sm:text-xl"></i></span>
+        <span class="leading-tight min-w-0">
+          <span class="block font-display font-bold text-[15px] sm:text-lg truncate">San Roque <span class="text-brand">Soporte &amp; Web</span></span>
+          <span class="hidden sm:block text-[11px] tracking-widest uppercase text-ink-muted">PC · Notebooks · Páginas</span>
+        </span>
+      </a>
+
+      <ul class="hidden lg:flex items-center gap-5 xl:gap-8 text-[15px] xl:text-base font-medium">
+        <li><a href="#inicio" class="nav-link" data-section="inicio">Inicio</a></li>
+        <li><a href="#servicios" class="nav-link" data-section="servicios">Arreglos de PC</a></li>
+        <li><a href="#trabajos" class="nav-link" data-section="trabajos">Trabajos</a></li>
+        <li><a href="#web" class="nav-link" data-section="web">Páginas web</a></li>
+        <li><a href="#cotizador" class="nav-link" data-section="cotizador">Pedí presupuesto</a></li>
+        <li><a href="#contacto" class="nav-link" data-section="contacto">Contacto</a></li>
+      </ul>
+
+      <a href="#" data-wa="general" class="js-wa btn btn-primary btn-sm hidden lg:inline-flex">
+        <i class="fa-brands fa-whatsapp text-base"></i> WhatsApp
+      </a>
+
+      <button id="menuBtn" class="lg:hidden shrink-0 text-xl w-11 h-11 grid place-items-center rounded-xl glass" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+
+    <!-- Menú móvil -->
+    <div id="mobileMenu" class="closed lg:hidden absolute inset-x-3 top-full mt-2 glass-strong rounded-lg p-2 shadow-2xl max-h-[calc(100svh-90px)] overflow-y-auto">
+      <a href="#inicio" data-section="inicio" class="m-link flex items-center gap-3 px-4 py-3.5 rounded-md text-[#D4D4D4] active:bg-white/10"><i class="fa-solid fa-house w-5 text-brand"></i> Inicio</a>
+      <a href="#servicios" data-section="servicios" class="m-link flex items-center gap-3 px-4 py-3.5 rounded-md text-[#D4D4D4] active:bg-white/10"><i class="fa-solid fa-screwdriver-wrench w-5 text-brand"></i> Arreglos de PC</a>
+      <a href="#trabajos" data-section="trabajos" class="m-link flex items-center gap-3 px-4 py-3.5 rounded-md text-[#D4D4D4] active:bg-white/10"><i class="fa-solid fa-images w-5 text-brand"></i> Trabajos</a>
+      <a href="#web" data-section="web" class="m-link flex items-center gap-3 px-4 py-3.5 rounded-md text-[#D4D4D4] active:bg-white/10"><i class="fa-solid fa-code w-5 text-brand"></i> Páginas web</a>
+      <a href="#cotizador" data-section="cotizador" class="m-link flex items-center gap-3 px-4 py-3.5 rounded-md text-[#D4D4D4] active:bg-white/10"><i class="fa-solid fa-list-check w-5 text-brand"></i> Pedí presupuesto</a>
+      <a href="#contacto" data-section="contacto" class="m-link flex items-center gap-3 px-4 py-3.5 rounded-md text-[#D4D4D4] active:bg-white/10"><i class="fa-solid fa-envelope w-5 text-brand"></i> Contacto</a>
+      <a href="#" data-wa="general" class="js-wa btn btn-primary mt-2 w-full">
+        <i class="fa-brands fa-whatsapp"></i> Escribime por WhatsApp
+      </a>
+    </div>
+  </header>
+
+  <!-- Fondo oscuro que aparece detrás del menú en celular -->
+  <div id="menuBackdrop" aria-hidden="true"></div>
+
+  <main>
+    <!-- =====================================================================
+         1. INICIO
+         ===================================================================== -->
+    <section id="inicio" class="hero-full relative flex items-center pt-24 pb-14 sm:pt-28 sm:pb-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 w-full">
+        <div class="max-w-2xl lg:max-w-3xl">
+          <h1 class="reveal d1 font-display font-bold tracking-tight leading-[1.12] text-[clamp(1.65rem,7.2vw,3.4rem)] mb-5 sm:mb-6">
+            ¿La PC te anda lenta, se tilda o no enciende?
+            <span class="text-gradient">Arreglos y Páginas Web en San Roque</span>
+          </h1>
+
+          <p class="reveal d2 text-base sm:text-lg lg:text-xl text-ink-muted leading-relaxed max-w-2xl mb-8 sm:mb-9">
+            Te armo la PC, le hago una limpieza a fondo con cambio de pasta térmica, te instalo el Windows
+            y el Office <strong class="text-ink">sin perder tus archivos</strong>. Y si recién arrancás con tu
+            emprendimiento, te creo una página web rápida para que vendas por WhatsApp.
+            <strong class="text-ink">Sin vueltas, sin tecnicismos raros</strong> y con atención personalizada.
+          </p>
+
+          <div class="reveal d3 flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a href="#" data-wa="presupuesto" class="js-wa btn btn-primary">
+              <i class="fa-brands fa-whatsapp text-xl"></i> Hablar conmigo por WhatsApp
+            </a>
+            <a href="#servicios" class="btn btn-secondary">
+              Ver qué arreglo y cuánto sale
+            </a>
+          </div>
+        </div>
+      </div>
+      <a href="#servicios" class="hidden sm:block absolute left-1/2 -translate-x-1/2 bottom-6 text-ink-muted text-xl animate-bounce" aria-label="Ir a servicios">
+        <i class="fa-solid fa-chevron-down"></i>
+      </a>
+    </section>
+
+    <!-- =====================================================================
+         CINTA EN MOVIMIENTO (editá las palabras acá; el JS las repite solo)
+         ===================================================================== -->
+    <div class="marquee-band reveal" aria-label="Lo que hago">
+      <div class="marquee" data-dir="left" data-speed="55">
+        <div class="marquee-track">
+          <span class="marquee-item">Limpieza de PC</span><span class="marquee-sep" aria-hidden="true"></span>
+          <span class="marquee-item">Pasta térmica</span><span class="marquee-sep" aria-hidden="true"></span>
+          <span class="marquee-item">Windows y Linux</span><span class="marquee-sep" aria-hidden="true"></span>
+          <span class="marquee-item">Office</span><span class="marquee-sep" aria-hidden="true"></span>
+          <span class="marquee-item">SSD y RAM</span><span class="marquee-sep" aria-hidden="true"></span>
+          <span class="marquee-item">Armado de PC</span><span class="marquee-sep" aria-hidden="true"></span>
+          <span class="marquee-item">Notebooks</span><span class="marquee-sep" aria-hidden="true"></span>
+        </div>
+      </div>
+      <div class="marquee marquee-outline" data-dir="right" data-speed="45">
+        <div class="marquee-track">
+          <span class="marquee-item">Páginas web</span><span class="marquee-sep" aria-hidden="true"></span>
+          <span class="marquee-item">Google Maps</span><span class="marquee-sep" aria-hidden="true"></span>
+          <span class="marquee-item">Logos</span><span class="marquee-sep" aria-hidden="true"></span>
+          <span class="marquee-item">Ventas por WhatsApp</span><span class="marquee-sep" aria-hidden="true"></span>
+          <span class="marquee-item">A domicilio</span><span class="marquee-sep" aria-hidden="true"></span>
+          <span class="marquee-item">San Roque, Corrientes</span><span class="marquee-sep" aria-hidden="true"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- =====================================================================
+         2. SERVICIOS (Tarjetas 3D Tilt)
+         ===================================================================== -->
+    <section id="servicios" class="relative py-16 sm:py-24 lg:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="reveal text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+          <span class="text-brand font-bold tracking-[.2em] uppercase text-xs">Lo que hago</span>
+          <h2 class="section-title font-display font-bold text-[clamp(1.7rem,6vw,3rem)] leading-tight mt-3 mb-4">Si tiene cable, <span class="text-gradient">le meto mano</span></h2>
+          <p class="text-ink-muted text-base sm:text-lg">Te digo qué tiene tu máquina en criollo, te paso el precio antes de tocar nada y te la devuelvo probada. Y si no tiene arreglo, también te lo digo de frente.</p>
+        </div>
+
+        <div id="servCarousel" class="m-carousel grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <article class="tilt-card glass rounded-lg p-6 sm:p-7 reveal d1">
+            <div class="icon-box w-12 h-12 sm:w-14 sm:h-14 rounded-lg grid place-items-center text-xl sm:text-2xl text-brand mb-5"><i class="fa-solid fa-fan"></i></div>
+            <h3 class="font-display font-semibold text-lg sm:text-xl mb-2">Limpieza a fondo y pasta térmica</h3>
+            <p class="text-ink-muted text-sm mb-4">¿Hace ruido de avión o se apaga sola? Casi siempre es polvo y pasta seca. Con el calor que hace acá, pasa más de lo que pensás.</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>La desarmo y la limpio por dentro</li>
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>Pasta térmica nueva</li>
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>Te muestro la temperatura antes y después</li>
+            </ul>
+          </article>
+
+          <article class="tilt-card glass rounded-lg p-6 sm:p-7 reveal d2">
+            <div class="icon-box w-12 h-12 sm:w-14 sm:h-14 rounded-lg grid place-items-center text-xl sm:text-2xl text-brand mb-5"><i class="fa-brands fa-windows"></i></div>
+            <h3 class="font-display font-semibold text-lg sm:text-xl mb-2">Windows nuevo y que vuelva a andar</h3>
+            <p class="text-ink-muted text-sm mb-4">La formateo y le instalo todo de cero. Pero antes te guardo las fotos, los documentos y lo que necesites.</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>Windows 10 / 11 o Linux</li>
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>Drivers instalados y andando</li>
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>Tus archivos a salvo</li>
+            </ul>
+          </article>
+
+          <article class="tilt-card glass rounded-lg p-6 sm:p-7 reveal d3">
+            <div class="icon-box w-12 h-12 sm:w-14 sm:h-14 rounded-lg grid place-items-center text-xl sm:text-2xl text-brand mb-5"><i class="fa-solid fa-file-word"></i></div>
+            <h3 class="font-display font-semibold text-lg sm:text-xl mb-2">Office y los programas de siempre</h3>
+            <p class="text-ink-muted text-sm mb-4">Word, Excel, el navegador, el antivirus, la impresora... te la dejo lista para estudiar o trabajar.</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>Office o alternativas gratis</li>
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>Antivirus y navegador</li>
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>Te conecto la impresora</li>
+            </ul>
+          </article>
+
+          <article class="tilt-card glass rounded-lg p-6 sm:p-7 reveal d4">
+            <div class="icon-box w-12 h-12 sm:w-14 sm:h-14 rounded-lg grid place-items-center text-xl sm:text-2xl text-brand mb-5"><i class="fa-solid fa-microchip"></i></div>
+            <h3 class="font-display font-semibold text-lg sm:text-xl mb-2">Arreglos, mejoras y PCs armadas</h3>
+            <p class="text-ink-muted text-sm mb-4">Un disco SSD le cambia la vida a una compu vieja. Y si querés una nueva, te la armo según lo que vas a usar y lo que querés gastar.</p>
+            <ul class="space-y-2 text-sm">
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>Le pongo SSD y más RAM</li>
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>Cambio la pieza que falla</li>
+              <li class="flex gap-2"><i class="fa-solid fa-check text-brand mt-1"></i>PC para la escuela, la oficina o para jugar</li>
+            </ul>
+          </article>
+        </div>
+        <!-- Puntitos del carrusel (solo se ven en celular) -->
+        <div id="servDots" class="carousel-dots" role="tablist" aria-label="Elegir servicio"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         TRABAJOS REALES (fotos y video de la carpeta FOTOS)
+         Para agregar uno: copiá un bloque <article class="work"> completo y
+         cambiá la foto, el título, lo que hiciste y el resultado.
+         data-cat = categorías para los filtros: pc, notebook, upgrade, domicilio, web
+         (si una foto no existe, la tarjeta se oculta sola)
+         ===================================================================== -->
+    <section id="trabajos" class="relative py-16 sm:py-24 lg:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="reveal text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+          <span class="text-brand font-bold tracking-[.2em] uppercase text-xs">Trabajos reales</span>
+          <h2 class="section-title font-display font-bold text-[clamp(1.7rem,6vw,3rem)] leading-tight mt-3 mb-4">Así <span class="text-gradient">trabajo</span></h2>
+          <p class="text-ink-muted text-base sm:text-lg">Nada de fotos de internet: estos son equipos que pasaron por mis manos, y en cada uno te cuento qué le hice. Tocá la foto para verla en grande.</p>
+        </div>
+
+        <!-- Filtros (el número de cada uno lo calcula el JS) -->
+        <div class="work-filters reveal" id="workFilters" aria-label="Filtrar trabajos">
+          <button type="button" class="on" data-filter="all">Todos<span></span></button>
+          <button type="button" data-filter="pc">PC de escritorio<span></span></button>
+          <button type="button" data-filter="notebook">Notebooks<span></span></button>
+          <button type="button" data-filter="upgrade">Mejoras<span></span></button>
+          <button type="button" data-filter="domicilio">A domicilio<span></span></button>
+          <button type="button" data-filter="web">Páginas web<span></span></button>
+        </div>
+
+        <div class="works" id="works">
+
+          <!-- 1. Limpieza PC -->
+          <article class="work reveal" data-cat="pc">
+            <button type="button" class="work-media" data-type="img" data-src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.17.23%20PM.jpeg" aria-label="Ver en grande: limpieza de una PC de escritorio">
+              <img src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.17.23%20PM.jpeg" width="1280" height="720" alt="PC de escritorio con el gabinete abierto durante una limpieza" loading="lazy" decoding="async" />
+              <span class="work-zoom"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <div class="work-body">
+              <span class="work-tag">Limpieza</span>
+              <h3>Limpieza de una PC de escritorio</h3>
+              <p class="work-label">Lo que hice</p>
+              <ul>
+                <li>Abrí el gabinete y saqué el polvo de adentro.</li>
+                <li>Revisé ventiladores, fuente y conexiones.</li>
+              </ul>
+              <p class="work-result"><i class="fa-solid fa-circle-check"></i> Más fresca y silenciosa.</p>
+            </div>
+          </article>
+
+          <!-- 2. Pasta térmica -->
+          <article class="work reveal" data-cat="pc">
+            <button type="button" class="work-media" data-type="img" data-src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.31.24%20PM%20(1).jpeg" aria-label="Ver en grande: cambio de pasta térmica">
+              <img src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.31.24%20PM%20(1).jpeg" width="960" height="1280" alt="Placa madre con el procesador cubierto de pasta térmica seca y el disipador con polvo" loading="lazy" decoding="async" />
+              <span class="work-zoom"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <div class="work-body">
+              <span class="work-tag">Pasta térmica</span>
+              <h3>Cambio de pasta térmica</h3>
+              <p class="work-label">Lo que hice</p>
+              <ul>
+                <li>Encontré la pasta seca y el disipador tapado de polvo.</li>
+                <li>Limpié el procesador y el disipador.</li>
+                <li>Le puse pasta térmica nueva.</li>
+              </ul>
+              <p class="work-result"><i class="fa-solid fa-circle-check"></i> Baja la temperatura y deja de apagarse sola.</p>
+            </div>
+          </article>
+
+          <!-- 3. SSD Dell -->
+          <article class="work reveal" data-cat="pc upgrade">
+            <button type="button" class="work-media" data-type="img" data-src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.17.23%20PM%20(3).jpeg" aria-label="Ver en grande: SSD en una Dell todo-en-uno">
+              <img src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.17.23%20PM%20(3).jpeg" width="960" height="1280" alt="Computadora Dell todo-en-uno abierta con un disco SSD WD Green nuevo" loading="lazy" decoding="async" />
+              <span class="work-zoom"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <div class="work-body">
+              <span class="work-tag">Mejora · SSD</span>
+              <h3>SSD en una Dell todo-en-uno</h3>
+              <p class="work-label">Lo que hice</p>
+              <ul>
+                <li>Abrí la Dell OptiPlex todo-en-uno.</li>
+                <li>Le instalé un disco SSD WD Green de 1 TB.</li>
+                <li>El disco anterior quedó para guardar archivos.</li>
+              </ul>
+              <p class="work-result"><i class="fa-solid fa-circle-check"></i> Prende y abre los programas en segundos.</p>
+            </div>
+          </article>
+
+          <!-- 4. Video (se reproduce solo cuando la persona lo ve) -->
+          <article class="work reveal" data-cat="pc">
+            <button type="button" class="work-media" data-type="video" data-src="FOTOS/WhatsApp%20Video%202026-10-28%20at%206.17.23%20PM.mp4" aria-label="Ver el video con sonido">
+              <video src="FOTOS/WhatsApp%20Video%202026-10-28%20at%206.17.23%20PM.mp4" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+              <span class="work-live">Video</span>
+              <span class="work-zoom"><i class="fa-solid fa-volume-high"></i></span>
+              <span class="video-error">No se pudo cargar el video.<br />Tocá para intentar abrirlo.</span>
+            </button>
+            <div class="work-body">
+              <span class="work-tag">Video</span>
+              <h3>Revisión por dentro de una PC</h3>
+              <p class="work-label">Lo que hice</p>
+              <ul>
+                <li>Revisé la fuente y el cableado.</li>
+                <li>Controlé que todo quede bien conectado.</li>
+              </ul>
+              <p class="work-result"><i class="fa-solid fa-circle-check"></i> Tocá el video para verlo con sonido.</p>
+            </div>
+          </article>
+
+          <!-- 5. Notebook Lenovo -->
+          <article class="work reveal" data-cat="notebook">
+            <button type="button" class="work-media" data-type="img" data-src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.31.24%20PM%20(2).jpeg" aria-label="Ver en grande: notebook Lenovo por dentro">
+              <img src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.31.24%20PM%20(2).jpeg" width="960" height="1280" alt="Notebook Lenovo abierta mostrando la placa, el ventilador, la batería y un disco SSD" loading="lazy" decoding="async" />
+              <span class="work-zoom"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <div class="work-body">
+              <span class="work-tag">Notebook</span>
+              <h3>Limpieza de una notebook Lenovo</h3>
+              <p class="work-label">Lo que hice</p>
+              <ul>
+                <li>Saqué la tapa de abajo.</li>
+                <li>Limpié el ventilador y el disipador.</li>
+                <li>Revisé el disco SSD y la batería.</li>
+              </ul>
+              <p class="work-result"><i class="fa-solid fa-circle-check"></i> Deja de calentar y de hacer ruido.</p>
+            </div>
+          </article>
+
+          <!-- 6. HP Windows 11 -->
+          <article class="work reveal" data-cat="notebook">
+            <button type="button" class="work-media" data-type="img" data-src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.17.23%20PM%20(1).jpeg" aria-label="Ver en grande: notebook HP con Windows 11">
+              <img src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.17.23%20PM%20(1).jpeg" width="720" height="1280" alt="Notebook HP azul con Windows 11 recién instalado" loading="lazy" decoding="async" />
+              <span class="work-zoom"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <div class="work-body">
+              <span class="work-tag">Windows</span>
+              <h3>Windows 11 en una notebook HP</h3>
+              <p class="work-label">Lo que hice</p>
+              <ul>
+                <li>Formateé la notebook.</li>
+                <li>Instalé Windows 11 con todos los drivers.</li>
+                <li>Dejé Wi-Fi, Bluetooth y actualizaciones andando.</li>
+              </ul>
+              <p class="work-result"><i class="fa-solid fa-circle-check"></i> Lista para usar desde el primer minuto.</p>
+            </div>
+          </article>
+
+          <!-- 7. Atención en oficina -->
+          <article class="work reveal" data-cat="domicilio">
+            <button type="button" class="work-media" data-type="img" data-src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.17.23%20PM%20(2).jpeg" aria-label="Ver en grande: atención en oficina">
+              <img src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.17.23%20PM%20(2).jpeg" width="960" height="1280" alt="Escritorio de oficina con notebook y computadora todo-en-uno funcionando" loading="lazy" decoding="async" />
+              <span class="work-zoom"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <div class="work-body">
+              <span class="work-tag">A domicilio</span>
+              <h3>Puesta a punto en una oficina</h3>
+              <p class="work-label">Lo que hice</p>
+              <ul>
+                <li>Fui a la oficina del cliente.</li>
+                <li>Dejé a punto la notebook y la PC todo-en-uno.</li>
+                <li>Configuré Office y la impresión.</li>
+              </ul>
+              <p class="work-result"><i class="fa-solid fa-circle-check"></i> Todo andando sin cortar el trabajo.</p>
+            </div>
+          </article>
+
+          <!-- 8. Página web -->
+          <article class="work reveal" data-cat="web">
+            <button type="button" class="work-media" data-type="img" data-src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.31.24%20PM.jpeg" aria-label="Ver en grande: presentación de una página web">
+              <img src="FOTOS/WhatsApp%20Image%202026-10-28%20at%206.31.24%20PM.jpeg" width="1280" height="720" alt="Presentación del código de una página web en una pantalla grande frente a un equipo de trabajo" loading="lazy" decoding="async" />
+              <span class="work-zoom"><i class="fa-solid fa-expand"></i></span>
+            </button>
+            <div class="work-body">
+              <span class="work-tag">Página web</span>
+              <h3>Presentación de una página web</h3>
+              <p class="work-label">Lo que hice</p>
+              <ul>
+                <li>Desarrollé la página web del cliente.</li>
+                <li>Le presenté el código y el avance a todo el equipo.</li>
+              </ul>
+              <p class="work-result"><i class="fa-solid fa-circle-check"></i> El cliente ve cómo queda antes de publicarla.</p>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="reveal text-center mt-8 sm:mt-10">
+          <a href="#" data-wa="presupuesto" class="js-wa btn btn-primary">
+            <i class="fa-brands fa-whatsapp text-xl"></i> Quiero que revises la mía
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Visor a pantalla completa para la galería -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Foto ampliada" aria-hidden="true">
+      <span class="lb-count" id="lbCount"></span>
+      <button type="button" class="lb-btn lb-close" id="lbClose" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+      <button type="button" class="lb-btn lb-prev" id="lbPrev" aria-label="Anterior"><i class="fa-solid fa-chevron-left"></i></button>
+      <button type="button" class="lb-btn lb-next" id="lbNext" aria-label="Siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+      <div class="lb-stage" id="lbStage"></div>
+      <div class="lb-cap"><strong id="lbTitle"></strong><span id="lbDesc"></span></div>
+    </div>
+
+    <!-- =====================================================================
+         3. PÁGINAS WEB
+         ===================================================================== -->
+    <section id="web" class="relative py-16 sm:py-24 lg:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="glass-strong rounded-lg p-5 sm:p-10 lg:p-14 relative overflow-hidden reveal">
+
+          <div class="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center relative">
+            <div>
+              <span class="text-brand font-bold tracking-[.2em] uppercase text-xs"><i class="fa-solid fa-store mr-1"></i> Si recién arrancás con tu negocio</span>
+              <h2 class="section-title text-left font-display font-bold text-[clamp(1.7rem,6vw,3rem)] leading-tight mt-3 mb-5">Tu negocio, <span class="text-gradient">también en internet</span></h2>
+              <p class="text-ink-muted text-base sm:text-lg mb-7 sm:mb-8">
+                ¿Abriste un kiosco, una peluquería, hacés tortas o vendés ropa? Te hago una página simple
+                y rápida para que la gente vea lo que ofrecés y te escriba directo al WhatsApp.
+                Nada de cosas complicadas que después no sabés usar.
+              </p>
+
+              <div class="space-y-3 sm:space-y-4">
+                <div class="glass rounded-lg p-4 sm:p-5 flex gap-4 hover:border-brand/50 transition">
+                  <i class="fa-solid fa-laptop-code text-brand text-xl sm:text-2xl w-7 text-center mt-1 shrink-0"></i>
+                  <div><h3 class="font-semibold text-base sm:text-lg">Una página para tu negocio</h3><p class="text-ink-muted text-sm">Tus productos o servicios, horarios, cómo llegar y un botón para que te escriban. Pensada para verse bien en el celu, que es donde te van a buscar.</p></div>
+                </div>
+                <div class="glass rounded-lg p-4 sm:p-5 flex gap-4 hover:border-brand/50 transition">
+                  <i class="fa-solid fa-magnifying-glass-location text-brand text-xl sm:text-2xl w-7 text-center mt-1 shrink-0"></i>
+                  <div><h3 class="font-semibold text-base sm:text-lg">Que te encuentren en Google</h3><p class="text-ink-muted text-sm">Te cargo en Google Maps con fotos, horario y teléfono. Así, cuando alguien de San Roque busca lo que vendés, aparecés vos.</p></div>
+                </div>
+                <div class="glass rounded-lg p-4 sm:p-5 flex gap-4 hover:border-brand/50 transition">
+                  <i class="fa-solid fa-palette text-brand text-xl sm:text-2xl w-7 text-center mt-1 shrink-0"></i>
+                  <div><h3 class="font-semibold text-base sm:text-lg">Logo y colores</h3><p class="text-ink-muted text-sm">Si todavía no tenés logo, te armo uno sencillo y las imágenes para tus redes, así todo tiene la misma cara.</p></div>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-7 sm:mt-8">
+                <a href="#" data-wa="web" class="js-wa btn btn-primary">
+                  <i class="fa-brands fa-whatsapp text-xl"></i> Quiero mi página
+                </a>
+                <a href="#cotizador" class="btn btn-secondary">Armar mi pedido</a>
+              </div>
+            </div>
+
+            <!-- Maqueta de navegador (HTML/CSS) -->
+            <div class="hidden sm:block relative mx-6 lg:mx-0 my-6 lg:my-0" aria-hidden="true">
+              <div class="glass rounded-lg overflow-hidden shadow-[0_20px_60px_rgba(8,21,56,.6)]">
+                <div class="flex items-center gap-2 px-4 py-3 bg-base-deep/70 border-b border-white/10">
+                  <span class="w-3 h-3 rounded-full bg-red-400"></span><span class="w-3 h-3 rounded-full bg-brand"></span><span class="w-3 h-3 rounded-full bg-green-400"></span>
+                  <span class="ml-3 flex-1 text-xs text-ink-muted bg-white/5 rounded-md px-3 py-1 truncate"><i class="fa-solid fa-lock text-green-400 mr-1"></i> tunegocio.com.ar</span>
+                </div>
+                <div class="p-5 sm:p-6 space-y-4">
+                  <div class="h-3.5 w-1/3 rounded bg-brand/80"></div>
+                  <div class="h-6 sm:h-7 w-4/5 rounded bg-white/80"></div>
+                  <div class="h-3 w-3/5 rounded bg-white/30"></div>
+                  <div class="flex gap-3 pt-2"><div class="h-8 sm:h-9 w-28 sm:w-32 rounded-full bg-brand"></div><div class="h-8 sm:h-9 w-20 sm:w-24 rounded-full border border-white/30"></div></div>
+                  <div class="grid grid-cols-3 gap-3 pt-3">
+                    <div class="h-16 sm:h-20 rounded-xl bg-accent/40 border border-white/10"></div>
+                    <div class="h-16 sm:h-20 rounded-xl bg-accent/40 border border-white/10"></div>
+                    <div class="h-16 sm:h-20 rounded-xl bg-accent/40 border border-white/10"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute -bottom-5 -left-2 sm:-left-6 glass-strong rounded-lg px-4 py-3 flex items-center gap-3">
+                <i class="fa-brands fa-google text-xl text-brand"></i>
+                <div><p class="text-sm font-semibold">Apareciendo en Google</p><p class="text-xs text-ink-muted">San Roque, Corrientes</p></div>
+              </div>
+              <div class="absolute -top-4 -right-2 sm:-right-5 glass-strong rounded-lg px-3.5 py-2.5 flex items-center gap-2">
+                <i class="fa-solid fa-mobile-screen text-brand"></i><span class="text-sm font-semibold">Se ve bien en el celu</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- =================================================================
+             PÁGINAS QUE HICE (referencias reales)
+             Para agregar otra: copiá un <article class="ref"> y cambiá el link,
+             el nombre y lo que hiciste. La vista previa se genera sola a partir
+             del link; si querés usar tu propia captura, poné la ruta en
+             data-captura (ej: data-captura="FOTOS/captura-taller.jpg").
+             ================================================================= -->
+        <div class="mt-14 sm:mt-20">
+          <div class="reveal text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <span class="text-brand font-bold tracking-[.2em] uppercase text-xs">Referencias</span>
+            <h3 class="section-title font-display font-bold text-[clamp(1.5rem,5vw,2.4rem)] leading-tight mt-3 mb-4">Páginas que <span class="text-gradient">ya están andando</span></h3>
+            <p class="text-ink-muted text-base sm:text-lg">Entrá y miralas vos mismo: son negocios reales que hoy tienen su página gracias a este trabajo.</p>
+          </div>
+
+          <div class="refs">
+            <article class="ref reveal d1" data-url="https://tallersancayetanoo.com.ar/" data-captura="">
+              <a class="ref-preview" href="https://tallersancayetanoo.com.ar/" target="_blank" rel="noopener" aria-label="Abrir la página de Taller San Cayetano">
+                <span class="ref-bar">
+                  <span class="ref-dots"><i></i><i></i><i></i></span>
+                  <span class="ref-url"><i class="fa-solid fa-lock"></i> tallersancayetanoo.com.ar</span>
+                </span>
+                <span class="ref-shot">
+                  <img alt="Vista previa de la página de Taller San Cayetano" loading="lazy" decoding="async" />
+                  <span class="ref-fallback"><i class="fa-solid fa-globe"></i><strong>Taller San Cayetano</strong><small>Tocá para ver la página</small></span>
+                </span>
+                <span class="ref-open"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver la página</span>
+              </a>
+              <div class="ref-body">
+                <div class="flex items-center gap-3">
+                  <img class="ref-icon" alt="" width="32" height="32" loading="lazy" />
+                  <div class="min-w-0">
+                    <h4>Taller San Cayetano</h4>
+                    <p class="ref-domain">tallersancayetanoo.com.ar</p>
+                  </div>
+                </div>
+                <ul>
+                  <li>Diseño y desarrollo de la página completa.</li>
+                  <li>Adaptada para verse bien en celular y compu.</li>
+                  <li>Publicada en su propio dominio .com.ar.</li>
+                </ul>
+                <a class="btn btn-secondary btn-sm ref-btn" href="https://tallersancayetanoo.com.ar/" target="_blank" rel="noopener">
+                  Visitar la página <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </article>
+
+            <article class="ref reveal d2" data-url="https://solasol24.com.ar/" data-captura="">
+              <a class="ref-preview" href="https://solasol24.com.ar/" target="_blank" rel="noopener" aria-label="Abrir la página de Sol a Sol 24">
+                <span class="ref-bar">
+                  <span class="ref-dots"><i></i><i></i><i></i></span>
+                  <span class="ref-url"><i class="fa-solid fa-lock"></i> solasol24.com.ar</span>
+                </span>
+                <span class="ref-shot">
+                  <img alt="Vista previa de la página de Sol a Sol 24" loading="lazy" decoding="async" />
+                  <span class="ref-fallback"><i class="fa-solid fa-globe"></i><strong>Sol a Sol 24</strong><small>Tocá para ver la página</small></span>
+                </span>
+                <span class="ref-open"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver la página</span>
+              </a>
+              <div class="ref-body">
+                <div class="flex items-center gap-3">
+                  <img class="ref-icon" alt="" width="32" height="32" loading="lazy" />
+                  <div class="min-w-0">
+                    <h4>Sol a Sol 24</h4>
+                    <p class="ref-domain">solasol24.com.ar</p>
+                  </div>
+                </div>
+                <ul>
+                  <li>Diseño y desarrollo de la página completa.</li>
+                  <li>Adaptada para verse bien en celular y compu.</li>
+                  <li>Publicada en su propio dominio .com.ar.</li>
+                </ul>
+                <a class="btn btn-secondary btn-sm ref-btn" href="https://solasol24.com.ar/" target="_blank" rel="noopener">
+                  Visitar la página <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                </a>
+              </div>
+            </article>
+          </div>
+
+          <div class="reveal text-center mt-8 sm:mt-10">
+            <a href="#" data-wa="web" class="js-wa btn btn-primary">
+              <i class="fa-brands fa-whatsapp text-xl"></i> Quiero una página así
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         4. PEDÍ PRESUPUESTO (Cotizador sin precios)
+         ===================================================================== -->
+    <section id="cotizador" class="relative py-16 sm:py-24 lg:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="reveal text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <span class="text-brand font-bold tracking-[.2em] uppercase text-xs">Presupuesto sin cargo</span>
+          <h2 class="section-title font-display font-bold text-[clamp(1.7rem,6vw,3rem)] leading-tight mt-3 mb-4">Marcá lo que <span class="text-gradient">necesitás</span></h2>
+          <p class="text-ink-muted text-base sm:text-lg">Tocá lo que te hace falta, poné tu nombre y me llega el pedido al WhatsApp. Te contesto con el precio y cuándo te lo puedo hacer.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-[1fr_380px] gap-6 lg:gap-8 items-start">
+          <div class="space-y-8 reveal d1">
+            <div>
+              <h3 class="font-display font-semibold text-lg mb-4"><span class="text-brand">1.</span> Para tu PC o notebook</h3>
+              <div id="optsTech" class="grid sm:grid-cols-2 gap-3"></div>
+            </div>
+            <div>
+              <h3 class="font-display font-semibold text-lg mb-4"><span class="text-brand">2.</span> Para tu negocio</h3>
+              <div id="optsWeb" class="grid sm:grid-cols-2 gap-3"></div>
+            </div>
+          </div>
+
+          <aside id="quoteSummary" class="glass-strong rounded-lg p-5 sm:p-6 lg:sticky lg:top-28 reveal d2" aria-label="Resumen del pedido">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-display font-semibold text-lg"><i class="fa-solid fa-receipt text-brand mr-2"></i>Lo que marcaste</h3>
+              <button type="button" id="resetQuote" class="text-sm text-ink-muted hover:text-brand py-2 px-1"><i class="fa-solid fa-rotate-left mr-1"></i>Limpiar</button>
+            </div>
+
+            <ul id="summaryList" class="space-y-2 text-sm min-h-[48px] mb-4"></ul>
+
+            <div class="border-t border-white/10 pt-4 mb-5 flex gap-3 items-start">
+              <i class="fa-solid fa-file-invoice-dollar text-brand text-xl mt-0.5"></i>
+              <p class="text-sm text-ink-muted">No pagás nada por preguntar. Te paso el <strong class="text-ink">precio por WhatsApp</strong> y vos decidís.</p>
+            </div>
+
+            <label for="qName" class="text-sm font-medium">¿Cómo te llamás?</label>
+            <input id="qName" type="text" class="field mt-1 mb-3" placeholder="Ej: María" autocomplete="given-name" />
+            <label for="qNote" class="text-sm font-medium">Contame qué le pasa (si querés)</label>
+            <textarea id="qNote" rows="2" class="field mt-1 mb-4 resize-none" placeholder="Ej: tarda mil en prender y se apaga sola"></textarea>
+
+            <button type="button" id="sendQuote" class="btn btn-primary w-full" disabled>
+              <i class="fa-brands fa-whatsapp text-xl"></i> Mandarme el pedido
+            </button>
+            <p id="quoteHint" class="text-xs text-ink-muted text-center mt-2">Marcá al menos una cosa</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         5. CONTACTO
+         ===================================================================== -->
+    <section id="contacto" class="relative py-16 sm:py-24 lg:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="reveal text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <span class="text-brand font-bold tracking-[.2em] uppercase text-xs">Contacto</span>
+          <h2 class="section-title font-display font-bold text-[clamp(1.7rem,6vw,3rem)] leading-tight mt-3 mb-4">Hablás <span class="text-gradient">conmigo</span>, no con un call center</h2>
+          <p class="text-ink-muted text-base sm:text-lg">Soy de San Roque, como vos. Me escribís, te respondo yo, y el que te arregla la compu también soy yo.</p>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-6 lg:gap-8">
+          <div class="space-y-4 sm:space-y-6 reveal d1">
+            <div class="glass rounded-lg p-5 sm:p-7">
+              <div class="flex items-center gap-4 mb-5">
+                <div class="icon-box w-14 h-14 sm:w-16 sm:h-16 rounded-lg grid place-items-center text-2xl sm:text-3xl text-brand shrink-0"><i class="fa-solid fa-microchip"></i></div>
+                <div class="min-w-0">
+                  <h3 class="font-display font-bold text-lg sm:text-xl">San Roque Soporte &amp; Web</h3>
+                  <p class="text-ink-muted text-sm">Arreglo PCs y notebooks, y hago páginas web</p>
+                </div>
+              </div>
+              <p class="text-ink-muted mb-5">
+                Trabajo así: primero miro qué tiene, después te digo <strong class="text-ink">cuánto sale</strong>
+                y recién ahí arranco, si vos estás de acuerdo. No te cambio piezas que no hacen falta ni te hablo
+                en difícil. Y tus fotos y archivos son tuyos: no reviso nada que no tenga que ver con el arreglo.
+              </p>
+              <div class="grid grid-cols-1 min-[400px]:grid-cols-2 gap-3 text-sm">
+                <div class="flex items-center gap-2"><i class="fa-solid fa-file-invoice-dollar text-brand w-4"></i> Precio antes de arrancar</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-shield-halved text-brand w-4"></i> Garantía del trabajo</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-user-lock text-brand w-4"></i> Tus archivos no se tocan</div>
+                <div class="flex items-center gap-2"><i class="fa-solid fa-comments text-brand w-4"></i> Te respondo yo</div>
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div class="glass rounded-lg p-5">
+                <i class="fa-solid fa-location-dot text-brand text-xl mb-2"></i>
+                <p class="font-semibold">Dónde estoy</p>
+                <p class="text-ink-muted text-sm">San Roque, Corrientes. Si no podés traerla, paso yo.</p>
+              </div>
+              <div class="glass rounded-lg p-5">
+                <i class="fa-regular fa-clock text-brand text-xl mb-2"></i>
+                <p class="font-semibold">Cuándo atiendo</p>
+                <p class="text-ink-muted text-sm">Lun a Vie: 9 a 12 y 16 a 20 h<br />Sábados: 9 a 13 h<br />Fuera de horario, escribime igual nomás.</p>
+              </div>
+            </div>
+
+            <div class="glass rounded-lg overflow-hidden h-52 sm:h-56">
+              <iframe title="Mapa de San Roque, Corrientes" class="w-full h-full grayscale-[40%] invert-[90%] hue-rotate-180"
+                      src="https://www.google.com/maps?q=San+Roque,+Corrientes,+Argentina&z=14&output=embed"
+                      loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+
+          <form id="contactForm" class="glass-strong rounded-lg p-5 sm:p-7 space-y-4 reveal d2" novalidate>
+            <h3 class="font-display font-semibold text-xl mb-1">Mandame un mensaje</h3>
+            <p class="text-ink-muted text-sm mb-2">Completá esto y se abre WhatsApp con el mensaje ya escrito. Solo le das a enviar.</p>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="cName" class="text-sm font-medium">Tu nombre *</label>
+                <input id="cName" name="name" type="text" class="field mt-1" placeholder="¿Cómo te llamás?" autocomplete="name" required />
+              </div>
+              <div>
+                <label for="cPhone" class="text-sm font-medium">Teléfono</label>
+                <input id="cPhone" name="phone" type="tel" inputmode="tel" class="field mt-1" placeholder="Si querés que te llame" autocomplete="tel" />
+              </div>
+            </div>
+            <div>
+              <label for="cType" class="text-sm font-medium">¿Para quién es?</label>
+              <select id="cType" name="type" class="field mt-1">
+                <option>Para mí / para casa</option>
+                <option>Para mi negocio o emprendimiento</option>
+                <option>Para una empresa u oficina</option>
+              </select>
+            </div>
+            <div>
+              <label for="cService" class="text-sm font-medium">¿Qué necesitás?</label>
+              <select id="cService" name="service" class="field mt-1">
+                <option>Arreglar la PC o la notebook</option>
+                <option>Instalar Windows u Office</option>
+                <option>Armar una PC nueva</option>
+                <option>Una página web</option>
+                <option>Aparecer en Google / hacer un logo</option>
+                <option>Otra cosa</option>
+              </select>
+            </div>
+            <div>
+              <label for="cMsg" class="text-sm font-medium">Contame qué pasa *</label>
+              <textarea id="cMsg" name="message" rows="5" class="field mt-1 resize-none" placeholder="Ej: la notebook de mi hijo se tilda cada dos por tres..." required></textarea>
+            </div>
+            <p id="formError" class="hidden text-sm text-red-300"><i class="fa-solid fa-circle-exclamation mr-1"></i>Poné tu nombre y contame qué pasa, así te puedo responder.</p>
+
+            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+              <button type="submit" class="btn btn-primary flex-1">
+                <i class="fa-brands fa-whatsapp text-xl"></i> Mandar por WhatsApp
+              </button>
+              <button type="button" id="sendEmail" class="btn btn-secondary flex-1">
+                <i class="fa-solid fa-envelope"></i> Mandar por mail
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       FOOTER (con espacio abajo para que el botón flotante no tape nada)
+       ===================================================================== -->
+  <footer class="border-t border-white/10 pt-10 pb-28 sm:pb-12 mt-4 bg-base-deep/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row gap-5 items-center justify-between text-sm text-ink-muted text-center md:text-left">
+      <p>© <span id="year"></span> <span class="text-ink font-semibold">San Roque Soporte &amp; Web</span> · Arreglo de PCs y páginas web · San Roque, Corrientes</p>
+      <div class="flex flex-wrap justify-center gap-x-5 gap-y-2">
+        <a href="#servicios" class="hover:text-brand py-1">Arreglos</a>
+        <a href="#trabajos" class="hover:text-brand py-1">Trabajos</a>
+        <a href="#web" class="hover:text-brand py-1">Páginas web</a>
+        <a href="#cotizador" class="hover:text-brand py-1">Presupuesto</a>
+        <a href="#" data-wa="general" class="js-wa hover:text-brand py-1"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       BARRA INFERIOR DEL PEDIDO (celular): aparece al marcar algo
+       ===================================================================== -->
+  <div id="quoteBar" class="quote-bar" aria-live="polite">
+    <p class="text-sm leading-tight"><strong id="qbCount" class="text-brand text-base">0</strong> <span id="qbLabel">cosas marcadas</span></p>
+    <button type="button" id="qbGo" class="btn btn-primary btn-sm">Ver mi pedido <i class="fa-solid fa-arrow-down"></i></button>
+  </div>
+
+  <!-- =====================================================================
+       BOTÓN FLOTANTE DE WHATSAPP
+       ===================================================================== -->
+  <a href="#" data-wa="general" class="js-wa wa-float fixed right-4 bottom-4 sm:right-6 sm:bottom-6 z-50 w-14 h-14 sm:w-16 sm:h-16 rounded-full grid place-items-center text-white text-[1.75rem] sm:text-3xl bg-[#25D366] shadow-[0_8px_24px_rgba(37,211,102,.45)] hover:scale-110 transition"
+     style="margin-bottom: env(safe-area-inset-bottom);" aria-label="Escribir por WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span class="wa-tip hidden md:block absolute right-20 whitespace-nowrap text-sm font-semibold text-ink glass-strong rounded-xl px-4 py-2 opacity-0 translate-x-2 transition pointer-events-none">¿Qué le pasa a tu compu? Escribime</span>
+  </a>
+
+  <script>
+  /* =========================================================================
+     CONFIGURACIÓN DEL NEGOCIO — EDITÁ ESTOS DATOS
+     ========================================================================= */
+  const CONFIG = {
+    // WhatsApp en formato internacional, sin "+", espacios ni guiones (549 + código de área + número)
+    whatsapp: '5493794000000',
+    // Email para el botón "Mandar por mail" del formulario
+    email: 'tuemail@ejemplo.com'
+  };
+
+  // Mensajes preconfigurados para cada botón de WhatsApp (atributo data-wa)
+  const WA_MESSAGES = {
+    general:     '¡Hola! Te escribo desde tu página, quería hacerte una consulta.',
+    presupuesto: '¡Hola! Te escribo desde tu página. Tengo un problema con la compu y quería saber cuánto me sale arreglarla.',
+    web:         '¡Hola! Vi tu página. Tengo un emprendimiento acá en San Roque y me interesa hacer una página web.'
+  };
+
+  /* Opciones del pedido (sin precios: el presupuesto se pasa por WhatsApp).
+     pc: true → arreglo de PC (etiqueta "PC / Notebook") */
+  const SERVICES = {
+    tech: [
+      { id: 'limpieza', icon: 'fa-fan',                 name: 'Limpieza a fondo + pasta térmica', pc: true },
+      { id: 'so',       icon: 'fa-windows', brand: true, name: 'Instalar Windows o Linux',        pc: true },
+      { id: 'office',   icon: 'fa-file-word',           name: 'Office y programas',               pc: true },
+      { id: 'optimiz',  icon: 'fa-gauge-high',          name: 'Sacarle virus y que ande rápido',  pc: true },
+      { id: 'upgrade',  icon: 'fa-memory',              name: 'Ponerle SSD o más RAM',            pc: true },
+      { id: 'armado',   icon: 'fa-screwdriver-wrench',  name: 'Armar una PC nueva',               pc: true }
+    ],
+    web: [
+      { id: 'landing',  icon: 'fa-laptop-code',               name: 'Página web para mi negocio' },
+      { id: 'seo',      icon: 'fa-magnifying-glass-location', name: 'Aparecer en Google Maps' },
+      { id: 'marca',    icon: 'fa-palette',                   name: 'Logo y colores' },
+      { id: 'dominio',  icon: 'fa-globe',                     name: 'Dominio propio (.com.ar)' }
+    ]
+  };
+
+  /* =========================================================================
+     UTILIDADES
+     ========================================================================= */
+  const $  = (s, ctx = document) => ctx.querySelector(s);
+  const $$ = (s, ctx = document) => [...ctx.querySelectorAll(s)];
+  const waLink = text => `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(text)}`;
+  const openWA = text => window.open(waLink(text), '_blank', 'noopener');
+
+  $('#year').textContent = new Date().getFullYear();
+
+  $$('.js-wa').forEach(el => {
+    el.href = waLink(WA_MESSAGES[el.dataset.wa] || WA_MESSAGES.general);
+    el.target = '_blank';
+    el.rel = 'noopener';
+  });
+
+  /* =========================================================================
+     NAVBAR: fondo al scrollear, menú móvil y link activo
+     ========================================================================= */
+  const navbar = $('#navbar'), menuBtn = $('#menuBtn'), mobileMenu = $('#mobileMenu');
+
+  const isMenuOpen = () => !mobileMenu.classList.contains('closed');
+
+  function setMenu(open) {
+    mobileMenu.classList.toggle('closed', !open);
+    document.body.classList.toggle('menu-open', open);   // bloquea el scroll y muestra el fondo oscuro
+    menuBtn.setAttribute('aria-expanded', open);
+    menuBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    menuBtn.innerHTML = open ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+    if (open) navbar.classList.add('scrolled');
+    else navbar.classList.toggle('scrolled', scrollY > 30);
+  }
+  menuBtn.addEventListener('click', () => setMenu(!isMenuOpen()));
+  $$('a', mobileMenu).forEach(a => a.addEventListener('click', () => setMenu(false)));
+  $('#menuBackdrop').addEventListener('click', () => setMenu(false));       // tocar afuera cierra
+  addEventListener('keydown', e => { if (e.key === 'Escape' && isMenuOpen()) setMenu(false); });
+  // Si se gira el celular o se agranda la ventana a modo compu, se cierra el menú
+  const desktopMQ = matchMedia('(min-width: 1024px)');
+  const onDesktop = e => { if (e.matches) setMenu(false); };
+  desktopMQ.addEventListener ? desktopMQ.addEventListener('change', onDesktop) : desktopMQ.addListener(onDesktop); // iPhone viejos
+
+  const onScrollNav = () => { if (!isMenuOpen()) navbar.classList.toggle('scrolled', scrollY > 30); };
+  addEventListener('scroll', onScrollNav, { passive: true });
+  onScrollNav();
+
+  // Marca la sección actual tanto en el menú de compu como en el del celular
+  const navLinks = [...$$('.nav-link'), ...$$('.m-link')];
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) navLinks.forEach(l => l.classList.toggle('active', l.dataset.section === e.target.id));
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  $$('main section').forEach(s => sectionObserver.observe(s));
+
+  /* =========================================================================
+     REVEAL ON SCROLL
+     ========================================================================= */
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  $$('.reveal').forEach(el => revealObserver.observe(el));
+
+  /* =========================================================================
+     PEDIDO (cotizador sin precios)
+     ========================================================================= */
+  const quote = { selected: new Set() };
+  const allServices = [...SERVICES.tech, ...SERVICES.web];
+  const byId = id => allServices.find(s => s.id === id);
+
+  function renderOptions(list, container) {
+    container.innerHTML = list.map(s => `
+      <label class="opt glass relative rounded-lg p-3.5 sm:p-4 flex items-center gap-3.5">
+        <input type="checkbox" value="${s.id}" />
+        <span class="icon-box w-10 h-10 sm:w-11 sm:h-11 rounded-xl grid place-items-center text-brand shrink-0">
+          <i class="${s.brand ? 'fa-brands' : 'fa-solid'} ${s.icon}"></i>
+        </span>
+        <span class="flex-1 min-w-0">
+          <span class="block font-semibold text-sm leading-snug">${s.name}</span>
+          <span class="block text-xs text-ink-muted">${s.pc ? 'PC / Notebook' : 'Para tu negocio'}</span>
+        </span>
+        <span class="check w-6 h-6 rounded-full border border-white/30 grid place-items-center text-xs shrink-0"><i class="fa-solid fa-check"></i></span>
+      </label>`).join('');
+  }
+  renderOptions(SERVICES.tech, $('#optsTech'));
+  renderOptions(SERVICES.web, $('#optsWeb'));
+
+  $$('#optsTech input, #optsWeb input').forEach(cb => cb.addEventListener('change', () => {
+    cb.checked ? quote.selected.add(cb.value) : quote.selected.delete(cb.value);
+    updateQuote();
+  }));
+
+  const orderLines = () => [...quote.selected].map(id => byId(id).name);
+
+  function updateQuote() {
+    const lines = orderLines();
+    $('#summaryList').innerHTML = lines.length
+      ? lines.map(l => `<li class="flex gap-2"><i class="fa-solid fa-circle-check text-brand mt-0.5"></i><span>${l}</span></li>`).join('')
+      : '<li class="text-ink-muted italic">Todavía no marcaste nada.</li>';
+    const empty = lines.length === 0;
+    $('#sendQuote').disabled = empty;
+    $('#quoteHint').textContent = empty ? 'Marcá al menos una cosa' : 'Se abre WhatsApp con todo ya escrito';
+
+    // Contador de la barra inferior (celular)
+    $('#qbCount').textContent = lines.length;
+    $('#qbLabel').textContent = lines.length === 1 ? 'cosa marcada' : 'cosas marcadas';
+    updateQuoteBar();
+  }
+
+  /* --- Barra inferior del pedido en celular ---
+     Aparece cuando marcaste algo y estás viendo las opciones, pero el
+     resumen todavía quedó más abajo. Un toque te lleva directo al resumen. */
+  const quoteBar = $('#quoteBar');
+  const summaryBox = $('#quoteSummary');
+  let inQuoteSection = false, summaryVisible = false;
+
+  function updateQuoteBar() {
+    const show = quote.selected.size > 0 && inQuoteSection && !summaryVisible && innerWidth < 1024;
+    quoteBar.classList.toggle('show', show);
+    document.body.classList.toggle('bar-open', show);
+  }
+  new IntersectionObserver(([e]) => { inQuoteSection = e.isIntersecting; updateQuoteBar(); }, { threshold: 0 })
+    .observe($('#cotizador'));
+  new IntersectionObserver(([e]) => { summaryVisible = e.isIntersecting; updateQuoteBar(); }, { threshold: .25 })
+    .observe(summaryBox);
+  $('#qbGo').addEventListener('click', () => summaryBox.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  addEventListener('resize', updateQuoteBar);
+
+  $('#sendQuote').addEventListener('click', () => {
+    const lines = orderLines();
+    if (!lines.length) return;
+    const name = $('#qName').value.trim();
+    const note = $('#qNote').value.trim();
+    let msg = `¡Hola! ${name ? 'Soy ' + name + ', ' : ''}te escribo desde tu página. Necesito esto:\n\n`;
+    lines.forEach(l => { msg += `• ${l}\n`; });
+    if (note) msg += `\nComentario: ${note}\n`;
+    msg += `\n¿Cuánto me sale y cuándo me lo podés hacer?`;
+    openWA(msg);
+  });
+
+  $('#resetQuote').addEventListener('click', () => {
+    quote.selected.clear();
+    $$('#optsTech input, #optsWeb input').forEach(cb => cb.checked = false);
+    updateQuote();
+  });
+
+  updateQuote();
+
+  /* =========================================================================
+     FORMULARIO DE CONTACTO → WhatsApp o mail
+     ========================================================================= */
+  const form = $('#contactForm');
+
+  function readForm() {
+    const data = Object.fromEntries(new FormData(form));
+    const ok = data.name.trim() && data.message.trim();
+    $('#cName').classList.toggle('invalid', !data.name.trim());
+    $('#cMsg').classList.toggle('invalid', !data.message.trim());
+    $('#formError').classList.toggle('hidden', !!ok);
+    if (!ok) {
+      // En celular: lleva la pantalla al primer campo que falta y lo enfoca
+      const first = !data.name.trim() ? $('#cName') : $('#cMsg');
+      first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => first.focus({ preventScroll: true }), 350);
+    }
+    return ok ? data : null;
+  }
+  function formText(d) {
+    return `¡Hola! Soy ${d.name.trim()}, te escribo desde tu página.\n` +
+           `Necesito: ${d.service} (${d.type.toLowerCase()})\n` +
+           (d.phone.trim() ? `Mi teléfono: ${d.phone.trim()}\n` : '') +
+           `\n${d.message.trim()}`;
+  }
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const d = readForm();
+    if (d) openWA(formText(d));
+  });
+  $('#sendEmail').addEventListener('click', () => {
+    const d = readForm();
+    if (!d) return;
+    const subject = `Consulta desde la página: ${d.service}`;
+    location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(formText(d))}`;
+  });
+  $$('#cName, #cMsg').forEach(el => el.addEventListener('input', () => el.classList.remove('invalid')));
+
+  /* =========================================================================
+     MEJORAS PARA CELULAR
+     ========================================================================= */
+
+  /* 1. Carrusel de servicios: puntitos que siguen el deslizamiento */
+  (function carousel() {
+    const track = $('#servCarousel'), dotsBox = $('#servDots');
+    const cards = [...track.children];
+    dotsBox.innerHTML = cards.map((_, i) =>
+      `<button type="button" role="tab" aria-label="Servicio ${i + 1}"${i === 0 ? ' class="on"' : ''}></button>`).join('');
+    const dots = [...dotsBox.children];
+
+    // Tocar un puntito lleva a esa tarjeta
+    dots.forEach((d, i) => d.addEventListener('click', () => {
+      track.scrollTo({ left: cards[i].offsetLeft - track.offsetLeft - 16, behavior: 'smooth' });
+    }));
+
+    // Detecta qué tarjeta está centrada
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const i = cards.indexOf(e.target);
+          dots.forEach((d, j) => d.classList.toggle('on', j === i));
+        }
+      });
+    }, { root: track, threshold: .6 });
+    cards.forEach(c => io.observe(c));
+  })();
+
+  /* 1b. Cinta de texto en movimiento
+         - Repite las palabras hasta llenar la pantalla y duplica el bloque,
+           así el loop es infinito y sin saltos.
+         - Velocidad pareja en cualquier pantalla (px por segundo, data-speed).
+         - Se frena al pasar el mouse o al apoyar el dedo, y se pausa sola
+           cuando no está a la vista (ahorra batería). */
+  (function marquees() {
+    const items = $$('.marquee');
+    items.forEach(m => { m._original = m.querySelector('.marquee-track').innerHTML; });
+
+    function build(m) {
+      const track = m.querySelector('.marquee-track');
+      track.innerHTML = m._original;
+      // Repetir hasta cubrir al menos el ancho visible
+      let guard = 0;
+      while (track.scrollWidth < m.offsetWidth && guard++ < 20) track.innerHTML += m._original;
+      // Duplicar el bloque completo: la animación corre exactamente la mitad (-50%)
+      track.innerHTML += track.innerHTML;
+      // Los lectores de pantalla leen solo la primera tanda (las copias se ocultan)
+      const originalCount = (m._original.match(/marquee-item/g) || []).length;
+      $$('.marquee-item', track).forEach((el, i) => { if (i >= originalCount) el.setAttribute('aria-hidden', 'true'); });
+      const speed = Number(m.dataset.speed) || 50;                  // px/seg
+      m.style.setProperty('--dur', (track.scrollWidth / 2 / speed) + 's');
+    }
+
+    const buildAll = () => items.forEach(build);
+    // Esperar a que carguen las fuentes para medir bien
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(buildAll);
+
+    let lastW = innerWidth, t;
+    addEventListener('resize', () => {
+      if (innerWidth === lastW) return;                              // ignora el cambio de alto de la barra del celular
+      lastW = innerWidth; clearTimeout(t); t = setTimeout(buildAll, 200);
+    });
+
+    items.forEach(m => {
+      // Pausa al pasar el mouse (compu) o mientras el dedo está apoyado (celular)
+      m.addEventListener('mouseenter', () => m.classList.add('paused'));
+      m.addEventListener('mouseleave', () => m.classList.remove('paused'));
+      m.addEventListener('touchstart', () => m.classList.add('paused'), { passive: true });
+      m.addEventListener('touchend',   () => m.classList.remove('paused'));
+      m.addEventListener('touchcancel',() => m.classList.remove('paused'));
+    });
+
+    // Pausa cuando la cinta no se ve
+    const band = $('.marquee-band');
+    new IntersectionObserver(([e]) => {
+      band.querySelectorAll('.marquee-track').forEach(tr => tr.style.animationPlayState = e.isIntersecting ? '' : 'paused');
+    }).observe(band);
+  })();
+
+  /* 1c. Trabajos reales
+         - Filtros por tipo de trabajo (con contador).
+         - Si una foto no existe, su tarjeta se oculta sola (nunca se ven fotos rotas).
+         - El video se reproduce solo, sin sonido, cuando la persona lo está viendo,
+           y se pausa cuando sale de la pantalla. Tocándolo se ve en grande con sonido.
+         - Visor a pantalla completa: flechas, teclado (← → Esc) y deslizar con el dedo. */
+  (function works() {
+    const cards = $$('.work');
+    const filtersBox = $('#workFilters');
+    const lb = $('#lightbox'), stage = $('#lbStage');
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let filter = 'all', list = [], current = 0, lastFocus = null;
+
+    const cats = card => (card.dataset.cat || '').split(/\s+/);
+    const usable = card => !card.classList.contains('is-broken');
+
+    /* --- Filtros --- */
+    function refresh() {
+      // contadores y filtros vacíos
+      $$('button', filtersBox).forEach(b => {
+        const f = b.dataset.filter;
+        const n = cards.filter(c => usable(c) && (f === 'all' || cats(c).includes(f))).length;
+        b.querySelector('span').textContent = ` (${n})`;
+        b.hidden = n === 0 && f !== 'all';
+      });
+      cards.forEach(c => c.classList.toggle('is-hidden', !(filter === 'all' || cats(c).includes(filter))));
+    }
+    filtersBox.addEventListener('click', e => {
+      const b = e.target.closest('button'); if (!b) return;
+      filter = b.dataset.filter;
+      $$('button', filtersBox).forEach(x => x.classList.toggle('on', x === b));
+      refresh();
+      // pequeña animación de entrada al filtrar
+      cards.forEach((c, i) => {
+        if (c.classList.contains('is-hidden')) return;
+        c.classList.add('visible');
+        c.classList.remove('pop'); void c.offsetWidth;
+        c.style.animationDelay = (i % 3) * 60 + 'ms';
+        c.classList.add('pop');
+      });
+      b.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    });
+
+    /* --- Fotos que no existen: se ocultan --- */
+    cards.forEach(card => {
+      const img = card.querySelector('.work-media img');
+      if (!img) return;
+      const probe = new Image();
+      probe.onerror = () => {
+        card.classList.add('is-broken');
+        console.warn('Falta la foto (revisá la carpeta FOTOS):', decodeURIComponent(img.getAttribute('src')));
+        refresh();
+      };
+      probe.src = img.getAttribute('src');
+    });
+
+    /* --- Video: se reproduce solo cuando se ve --- */
+    $$('.work-media[data-type="video"]').forEach(media => {
+      const v = media.querySelector('video');
+      const live = media.querySelector('.work-live');
+      v.muted = true;                                   // sin sonido para que el navegador permita el autoplay
+      v.addEventListener('error', () => media.classList.add('failed'));
+      v.addEventListener('playing', () => { media.classList.add('playing'); live.textContent = 'Reproduciendo'; });
+      v.addEventListener('pause',   () => { media.classList.remove('playing'); live.textContent = 'Video'; });
+      if (reduce) return;                               // con "reducir movimiento" no arranca solo
+      new IntersectionObserver(([e]) => {
+        if (e.isIntersecting && !document.body.classList.contains('lb-open')) {
+          const p = v.play(); if (p) p.catch(() => {});
+        } else v.pause();
+      }, { threshold: .5 }).observe(media);
+    });
+
+    /* --- Visor a pantalla completa --- */
+    function render(i) {
+      current = (i + list.length) % list.length;
+      const card = list[current];
+      const m = card.querySelector('.work-media').dataset;
+      const title = card.querySelector('h3').textContent;
+      const done = $$('li', card).map(li => li.textContent.replace(/\.$/, '')).join(' · ');
+
+      stage.innerHTML = '';
+      if (m.type === 'video') {
+        const v = document.createElement('video');
+        v.controls = true; v.playsInline = true; v.preload = 'auto';
+        v.src = m.src;
+        v.addEventListener('error', () => {
+          stage.innerHTML = `<div class="lb-error">No se pudo reproducir el video en este navegador.<br /><a href="${m.src}" target="_blank" rel="noopener">Abrir el video directamente</a></div>`;
+        });
+        stage.appendChild(v);
+        const p = v.play(); if (p) p.catch(() => {});      // si el navegador no deja, queda con el botón de play
+      } else {
+        const img = document.createElement('img');
+        img.src = m.src; img.alt = title;
+        stage.appendChild(img);
+      }
+      $('#lbTitle').textContent = title;
+      $('#lbDesc').textContent = done;
+      $('#lbCount').textContent = `${current + 1} / ${list.length}`;
+    }
+    function open(card) {
+      list = cards.filter(c => usable(c) && !c.classList.contains('is-hidden'));
+      lastFocus = document.activeElement;
+      $$('.work video').forEach(v => v.pause());          // pausa el video de la tarjeta
+      document.body.classList.add('lb-open');
+      render(list.indexOf(card));
+      lb.classList.add('open'); lb.setAttribute('aria-hidden', 'false');
+      $('#lbClose').focus({ preventScroll: true });
+    }
+    function close() {
+      const v = stage.querySelector('video'); if (v) v.pause();
+      lb.classList.remove('open'); lb.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('lb-open');
+      setTimeout(() => { stage.innerHTML = ''; }, 250);
+      if (lastFocus) lastFocus.focus({ preventScroll: true });
+      // vuelve a reproducir el video de la tarjeta si sigue a la vista
+      if (!reduce) $$('.work-media[data-type="video"]').forEach(media => {
+        const r = media.getBoundingClientRect();
+        if (r.top < innerHeight && r.bottom > 0) { const p = media.querySelector('video').play(); if (p) p.catch(() => {}); }
+      });
+    }
+
+    cards.forEach(card => card.querySelector('.work-media').addEventListener('click', () => open(card)));
+    refresh();
+    $('#lbClose').addEventListener('click', close);
+    $('#lbPrev').addEventListener('click', () => render(current - 1));
+    $('#lbNext').addEventListener('click', () => render(current + 1));
+    lb.addEventListener('click', e => { if (e.target === lb) close(); });      // tocar el fondo cierra
+
+    addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowLeft') render(current - 1);
+      if (e.key === 'ArrowRight') render(current + 1);
+    });
+
+    // Deslizar con el dedo: izquierda/derecha cambia, hacia abajo cierra
+    let sx = 0, sy = 0;
+    lb.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+    lb.addEventListener('touchend', e => {
+      if (e.target.closest('video')) return;                 // no interferir con los controles del video
+      const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) render(current + (dx < 0 ? 1 : -1));
+      else if (dy > 90 && Math.abs(dy) > Math.abs(dx)) close();
+    });
+  })();
+
+  /* 1d. Páginas que hice: vista previa automática de cada sitio
+         - Si en data-captura hay una foto propia, usa esa.
+         - Si no, pide una captura del sitio a un servicio gratuito (mshots de WordPress).
+           La primera vez puede tardar unos segundos en generarse: se reintenta solo.
+         - Si no hay forma de conseguir la imagen, queda un recuadro con el nombre. */
+  (function refs() {
+    $$('.ref').forEach(ref => {
+      const url = ref.dataset.url;
+      const host = new URL(url).hostname;
+      const img = ref.querySelector('.ref-shot img');
+      const shot = ref.querySelector('.ref-shot');
+      const icon = ref.querySelector('.ref-icon');
+
+      // Ícono del sitio (favicon)
+      icon.src = `https://www.google.com/s2/favicons?domain=${host}&sz=64`;
+      icon.onerror = () => { icon.style.visibility = 'hidden'; };
+
+      const own = (ref.dataset.captura || '').trim();
+      const remote = `https://s0.wp.com/mshots/v1/${encodeURIComponent(url)}?w=1200&h=750`;
+      let tries = 0;
+
+      img.onerror = () => {
+        if (own && img.src.indexOf(own) !== -1) { img.src = remote; return; }  // tu captura no está: probá la automática
+        shot.classList.add('no-img');
+      };
+      img.onload = () => {
+        // mshots devuelve una imagen chica de "generando" (400x300) mientras prepara la captura
+        if (img.src.startsWith('https://s0.wp.com/') && img.naturalWidth <= 400 && tries < 4) {
+          tries++;
+          setTimeout(() => { img.src = remote + '&r=' + tries; }, 3500);
+          return;
+        }
+        shot.classList.remove('no-img');
+      };
+      shot.classList.add('no-img');            // muestra el recuadro hasta que llegue la imagen
+      img.src = own || remote;
+    });
+  })();
+
+  /* 2. Mientras escribís en un campo, se esconde el botón flotante de WhatsApp
+        (en celular el teclado lo dejaba encima de los campos) */
+  const isField = el => el && el.matches && el.matches('input, textarea, select');
+  document.addEventListener('focusin',  e => { if (isField(e.target)) document.body.classList.add('typing'); });
+  document.addEventListener('focusout', e => {
+    if (isField(e.target)) setTimeout(() => { if (!isField(document.activeElement)) document.body.classList.remove('typing'); }, 100);
+  });
+
+  /* 3. Los cuadros de texto crecen solos a medida que escribís */
+  $$('textarea.field').forEach(t => {
+    const grow = () => { t.style.height = 'auto'; t.style.height = Math.min(t.scrollHeight + 2, 260) + 'px'; };
+    t.addEventListener('input', grow);
+  });
+
+  /* 4. Altura real de pantalla para navegadores viejos de celular
+        (la barra de direcciones cambia el alto visible) */
+  if (!CSS.supports('height', '100svh')) {
+    const setVh = () => $('#inicio').style.minHeight = innerHeight + 'px';
+    setVh();
+    addEventListener('orientationchange', () => setTimeout(setVh, 300));
+  }
+  </script>
+</body>
+</html>
